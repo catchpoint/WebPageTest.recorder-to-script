@@ -45,14 +45,11 @@ let convert = function(step) {
             }
         }else{
             wptScript += 'setEventName Change\n';
-            //wptScript += 'combineSteps 2\n';
             //for now, let's skip any aria/ until we figure somethign out there
             for (let index = 0; index < selectors.length; index++) {
                 const selector = selectors[index];
                 if (!selector[0].startsWith('aria/')) {
                     wptScript += 'execAndWait document.querySelector("' + selector + '").value = "' + value + '";\n';
-                    // wptScript += 'execAndWait document.querySelector("' + selector + '").dispatchEvent(new Event("change", { bubbles: true }));\n';
-                    // wptScript += 'execAndWait document.querySelector("' + selector + '").dispatchEvent(new Event("input", { bubbles: true }));\n';
                     break;
                 }
         }

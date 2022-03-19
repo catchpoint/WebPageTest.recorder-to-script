@@ -1,0 +1,197 @@
+{
+  "title": "Test",
+  "steps": [
+    {
+      "type": "setViewport",
+      "width": 868,
+      "height": 609,
+      "deviceScaleFactor": 1,
+      "isMobile": false,
+      "hasTouch": false,
+      "isLandscape": false
+    },
+    {
+      "type": "navigate",
+      "url": "https://www.google.com/",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://www.google.com/",
+          "title": "Google"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/Search"
+        ],
+        [
+          "body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 59,
+      "offsetY": 17.5
+    },
+    {
+      "type": "change",
+      "value": "tim kadlec",
+      "selectors": [
+        [
+          "aria/Search"
+        ],
+        [
+          "body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf.sbfc > div.RNNXgb > div > div.a4bIc > input"
+        ]
+      ],
+      "target": "main"
+    },
+    {
+      "type": "keyDown",
+      "target": "main",
+      "key": "Enter",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://www.google.com/search?q=tim+kadlec&source=hp&ei=ivw1YuOqCtGT-AbO97igCA&iflsig=AHkkrS4AAAAAYjYKmirIdJ5aWXW7HnlkHx52NFEpX53p&oq=tim+kad&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUILhCABDIFCAAQgAQ6EQguEI8BENQCEOoCEIwDEOUCOg4IABCPARDqAhCMAxDlAjoLCAAQgAQQsQMQgwE6CAguELEDEIMBOhEILhCABBCxAxCDARDHARDRAzoICAAQgAQQsQM6CwguEIAEELEDEIMBOgsILhCABBCxAxDUAjoFCAAQsQM6CAguEIAEELEDOggIABCxAxCDAToOCC4QsQMQgwEQxwEQrwE6CAguEIAEENQCOgcILhCABBAKUK4SWMUhYKAzaAFwAHgAgAGoAYgBugiSAQMwLjeYAQCgAQGwAQo&sclient=gws-wiz",
+          "title": "tim kadlec - Google Search"
+        }
+      ]
+    },
+    {
+      "type": "keyUp",
+      "key": "Enter",
+      "target": "main"
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/TimKadlec.com - Web Performance Consulting | TimKadlec.com"
+        ],
+        [
+          "#rso > div:nth-child(1) > div > div.NJo7tc.Z26q7c.jGGQ5e > div > a > h3"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 195,
+      "offsetY": 16.46875
+    },
+    {
+      "type": "navigate",
+      "url": "https://www.google.com/search?q=tim+kadlec&source=hp&ei=ivw1YuOqCtGT-AbO97igCA&iflsig=AHkkrS4AAAAAYjYKmirIdJ5aWXW7HnlkHx52NFEpX53p&oq=tim+kad&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUILhCABDIFCAAQgAQ6EQguEI8BENQCEOoCEIwDEOUCOg4IABCPARDqAhCMAxDlAjoLCAAQgAQQsQMQgwE6CAguELEDEIMBOhEILhCABBCxAxCDARDHARDRAzoICAAQgAQQsQM6CwguEIAEELEDEIMBOgsILhCABBCxAxDUAjoFCAAQsQM6CAguEIAEELEDOggIABCxAxCDAToOCC4QsQMQgwEQxwEQrwE6CAguEIAEENQCOgcILhCABBAKUK4SWMUhYKAzaAFwAHgAgAGoAYgBugiSAQMwLjeYAQCgAQGwAQo&sclient=gws-wiz",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://www.google.com/search?q=tim+kadlec&source=hp&ei=ivw1YuOqCtGT-AbO97igCA&iflsig=AHkkrS4AAAAAYjYKmirIdJ5aWXW7HnlkHx52NFEpX53p&oq=tim+kad&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUILhCABDIFCAAQgAQ6EQguEI8BENQCEOoCEIwDEOUCOg4IABCPARDqAhCMAxDlAjoLCAAQgAQQsQMQgwE6CAguELEDEIMBOhEILhCABBCxAxCDARDHARDRAzoICAAQgAQQsQM6CwguEIAEELEDEIMBOgsILhCABBCxAxDUAjoFCAAQsQM6CAguEIAEELEDOggIABCxAxCDAToOCC4QsQMQgwEQxwEQrwE6CAguEIAEENQCOgcILhCABBAKUK4SWMUhYKAzaAFwAHgAgAGoAYgBugiSAQMwLjeYAQCgAQGwAQo&sclient=gws-wiz",
+          "title": "tim kadlec - Google Search"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/Images"
+        ],
+        [
+          "#hdtb-msb > div:nth-child(1) > div > div:nth-child(3) > a"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 26.427078247070312,
+      "offsetY": 17
+    },
+    {
+      "type": "navigate",
+      "url": "https://www.google.com/search?q=tim+kadlec&source=hp&ei=ivw1YuOqCtGT-AbO97igCA&iflsig=AHkkrS4AAAAAYjYKmirIdJ5aWXW7HnlkHx52NFEpX53p&oq=tim+kad&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUILhCABDIFCAAQgAQ6EQguEI8BENQCEOoCEIwDEOUCOg4IABCPARDqAhCMAxDlAjoLCAAQgAQQsQMQgwE6CAguELEDEIMBOhEILhCABBCxAxCDARDHARDRAzoICAAQgAQQsQM6CwguEIAEELEDEIMBOgsILhCABBCxAxDUAjoFCAAQsQM6CAguEIAEELEDOggIABCxAxCDAToOCC4QsQMQgwEQxwEQrwE6CAguEIAEENQCOgcILhCABBAKUK4SWMUhYKAzaAFwAHgAgAGoAYgBugiSAQMwLjeYAQCgAQGwAQo&sclient=gws-wiz",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://www.google.com/search?q=tim+kadlec&source=hp&ei=ivw1YuOqCtGT-AbO97igCA&iflsig=AHkkrS4AAAAAYjYKmirIdJ5aWXW7HnlkHx52NFEpX53p&oq=tim+kad&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUILhCABDIFCAAQgAQ6EQguEI8BENQCEOoCEIwDEOUCOg4IABCPARDqAhCMAxDlAjoLCAAQgAQQsQMQgwE6CAguELEDEIMBOhEILhCABBCxAxCDARDHARDRAzoICAAQgAQQsQM6CwguEIAEELEDEIMBOgsILhCABBCxAxDUAjoFCAAQsQM6CAguEIAEELEDOggIABCxAxCDAToOCC4QsQMQgwEQxwEQrwE6CAguEIAEENQCOgcILhCABBAKUK4SWMUhYKAzaAFwAHgAgAGoAYgBugiSAQMwLjeYAQCgAQGwAQo&sclient=gws-wiz",
+          "title": "tim kadlec - Google Search"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/TimKadlec.com - Web Performance Consulting | TimKadlec.com"
+        ],
+        [
+          "#rso > div:nth-child(1) > div > div.NJo7tc.Z26q7c.jGGQ5e > div > a > h3"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 195,
+      "offsetY": 10.46875,
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://timkadlec.com/",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/site",
+          "aria/[role=\"list\"]"
+        ],
+        [
+          "#nav > ul"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 454,
+      "offsetY": 42
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/WORK WITH ME"
+        ],
+        [
+          "#nav > ul > li:nth-child(2) > a"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 98.15625,
+      "offsetY": 40,
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://timkadlec.com/me/",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/WRITING"
+        ],
+        [
+          "#nav > ul > li:nth-child(3) > a"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 10.39581298828125,
+      "offsetY": 39,
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://timkadlec.com/remembers/",
+          "title": ""
+        }
+      ]
+    }
+  ]
+}

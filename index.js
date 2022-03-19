@@ -7,6 +7,8 @@ let flow = JSON.parse(jsonFile);
 let convert = function(step) {
     let wptScript = '';
 
+    let isKeyDown = false 
+
     //first, is it a valid step?
     function isValid(stepType) {
         if (stepMap[stepType]) {
@@ -31,18 +33,46 @@ let convert = function(step) {
         }
     }
     function addChange(selectors, value) {
-        wptScript += 'setEventName Change\n';
-        wptScript += 'combineSteps 2\n';
-        //for now, let's skip any aria/ until we figure somethign out there
-        for (let index = 0; index < selectors.length; index++) {
-            const selector = selectors[index];
-            if (!selector[0].startsWith('aria/')) {
-                wptScript += 'exec document.querySelector("' + selector + '").value = ' + value + ';\n';
-                wptScript += 'execAndWait document.querySelector("' + selector + '").dispatchEvent(new Event("change", { bubbles: true }));\n';
-                wptScript += 'execAndWait document.querySelector("' + selector + '").dispatchEvent(new Event("input", { bubbles: true }));\n';
-                break;
+        if(isKeyDown){
+            wptScript += 'setEventName KeyDown\n';
+
+            for (let index = 0; index < selectors.length; index++) {
+                const selector = selectors[index];
+                if (!selector[0].startsWith('aria/')) {
+                    wptScript += 'execAndWait document.querySelector("' + selector + '").click();\n';
+                    break;
+                }
             }
+        }else{
+            wptScript += 'setEventName Change\n';
+            //wptScript += 'combineSteps 2\n';
+            //for now, let's skip any aria/ until we figure somethign out there
+            for (let index = 0; index < selectors.length; index++) {
+                const selector = selectors[index];
+                if (!selector[0].startsWith('aria/')) {
+                    wptScript += 'execAndWait document.querySelector("' + selector + '").value = "' + value + '";\n';
+                    // wptScript += 'execAndWait document.querySelector("' + selector + '").dispatchEvent(new Event("change", { bubbles: true }));\n';
+                    // wptScript += 'execAndWait document.querySelector("' + selector + '").dispatchEvent(new Event("input", { bubbles: true }));\n';
+                    break;
+                }
         }
+        }
+        
+    }
+    function addKeyDown(assertedEvents) {
+        //Because some keydown events are returning url's as assertedEvents
+        if(assertedEvents){
+            assertedEvents.forEach(item => {
+                wptScript += 'setEventName KeyDown\n';
+                wptScript += 'navigate ' + item.url + '\n';
+            })
+        }else{
+            //just to fake out to change the state so that change function can behave as expected
+            isKeyDown = true 
+        }
+    }
+    function addKeyUp() {
+        isKeyDown = false 
     }
     function addScriptLine(step) {
         switch(step.type) {
@@ -54,6 +84,12 @@ let convert = function(step) {
                 break;
             case 'change':
                 addChange(step.selectors, step.value);
+                break;
+            case 'keyDown':
+                addKeyDown(step.assertedEvents && step.assertedEvents);
+                break;
+            case 'keyUp':
+                addKeyUp();
                 break;
         }
     }

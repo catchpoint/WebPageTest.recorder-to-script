@@ -11,7 +11,7 @@ class RecorderPlugin {
   }
 }
 
-/*------------------------*/
+/*-----------------------*/
 
 if (typeof process !== "undefined") {
   jsonPath = process.argv.slice(2)[0];

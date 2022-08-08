@@ -11,20 +11,20 @@ class RecorderPlugin {
   }
 }
 
-/*-----------------------*/
+/*------------------------*/
 
 if (typeof process !== "undefined") {
   jsonPath = process.argv.slice(2)[0];
   flow = require(jsonPath);
 } else {
-  /*Essential for extension*/
   /* eslint-disable no-undef */
-  chrome.devtools.recorder.registerRecorderExtensionPlugin(
-    new RecorderPlugin(),
-    /* name=*/ "WebPageTest custom",
-    /* mediaType=*/ "text/plain"
-    /*------------------------*/
-  );
+  if (chrome.devtools) {
+    chrome.devtools.recorder.registerRecorderExtensionPlugin(
+      new RecorderPlugin(),
+      /* name=*/ "WebPageTest custom",
+      /* mediaType=*/ "text/plain"
+    );
+  }
 }
 
 let convert = function (flow) {

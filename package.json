@@ -1,0 +1,19 @@
+{
+  "name": "recorder-to-wpt-script",
+  "version": "1.0.0",
+  "description": "Script to convert Chrome user flow recordings to WPT Custom Scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebPageTest/Recorder-To-WPT-Script.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebPageTest/Recorder-To-WPT-Script/issues"
+  },
+  "homepage": "https://github.com/WebPageTest/Recorder-To-WPT-Script#readme"
+}

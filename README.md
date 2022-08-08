@@ -39,7 +39,7 @@ Refer to [Recorder docs](https://developer.chrome.com/docs/devtools/recorder/) f
 
 ---
 **NOTE**
-- At the moment, Only Chrome v101 and above i.e. Google Chrome Developer and Google Chrome Canary exports these json scripts.
+- Only Chrome v101 and above i.e. Google Chrome Developer and Google Chrome Canary exports these json scripts.
 - Make sure that your recording plays back correctly in Chrome before feeding it into The Recorder Script (To obtain the expected outcome)
 
 ---
@@ -68,7 +68,7 @@ Once that is done, feed the JSON into the recorder script to generate the [WPT c
 
 ---
 **NOTE**
-- At the moment, Only Chrome v101 and above i.e. Google Chrome Developer and Google Chrome Canary exports these json scripts.
+- Only Chrome v101 and above i.e. Google Chrome Developer and Google Chrome Canary exports these json scripts.
 - There are some websites having issues with chrome recorder, this issue will be resolved with time as Google developers improve Chrome
   
 ---

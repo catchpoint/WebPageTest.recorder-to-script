@@ -60,6 +60,10 @@ Once that is done, feed the JSON into the recorder script to generate the [WPT c
 - `change` (maps to `execAndWait`)
 - `keydown` (maps to `execAndWait`)
 - `keyup` (maps to `execAndWait`)
+- `waitForElement` (maps to `waitFor`)
+- `waitForExpression` (maps to `waitFor`)
+- `doubleClick` (maps to `execAndWait`)
+- `scroll` (maps to `execAndWait`)
 
 ## Resources
 - [Sample JSON recordings](/sample-recordings)

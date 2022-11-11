@@ -1,0 +1,11 @@
+{
+  "type": "navigate",
+  "url": "https://hauslondon.com/",
+  "assertedEvents": [
+    {
+      "type": "navigation",
+      "url": "https://hauslondon.com/",
+      "title": "Contemporary furniture, lighting, gifts | London design shop | haus®"
+    }
+  ]
+}

@@ -1,19 +1,25 @@
 {
-  "name": "recorder-to-wpt-script",
+  "name": "rectest",
   "version": "1.6.1",
   "description": "Script to convert Chrome user flow recordings to WPT Custom Scripts",
-  "main": "index.js",
+  "main": "src/main.js",
+  "bin": {
+    "wptrecorder": "./bin/index.js"
+  },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WebPageTest/Recorder-To-WPT-Script.git"
+    "type": "git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WebPageTest/Recorder-To-WPT-Script/issues"
   },
-  "homepage": "https://github.com/WebPageTest/Recorder-To-WPT-Script#readme"
+  "homepage": "https://github.com/WebPageTest/Recorder-To-WPT-Script#readme",
+  "dependencies": {
+    "@puppeteer/replay": "^2.9.0"
+  }
 }

@@ -6,7 +6,7 @@ import { expandedFiles } from "../utils.js";
 const cli = meow(
   `
   Usage
-    $ npx wptrectest <path-of-recording.json> [options]
+    $ npx webpagetest-chrome-recorder <path-of-recording.json> [options]
 
   Options
 
@@ -15,8 +15,8 @@ const cli = meow(
 
   Examples
 
-    $ npx wptrectest recordings.json
-    $ npx wptrectest recordings/*.json
+    $ npx webpagetest-chrome-recorder recordings.json
+    $ npx webpagetest-chrome-recorder recordings/*.json
 `,
   {
     importMeta: import.meta,
@@ -39,7 +39,8 @@ inquirer
       type: "input",
       name: "files",
       message: "Enter directory or files that should be converted from Recorder JSON to Webpagetest:",
-      default: "./sample-recordings/simple-recorder.json", //change this to .
+      default: ".",
+      when: () => !cli.input.length,
       filter(files) {
         return new Promise((resolve) => {
           resolve(files.split(/\s+/).filter((f) => f.trim().length > 0));
@@ -68,7 +69,7 @@ inquirer
 
     return runTransformsOnChromeRecording({
       files: filesExpanded,
-      outputPath: outputPath,
+      outputPath: outputPath ?? "webpagetest",
       flags: cli.flags,
     });
   })

@@ -1,6 +1,6 @@
 {
-  "name": "wptrectest",
-  "version": "1.0.0",
+  "name": "webpagetest-chrome-recorder",
+  "version": "2.0.0",
   "description": "Script to convert Chrome user flow recordings to WPT Custom Scripts",
   "main": "src/main.js",
   "bin": {

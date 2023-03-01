@@ -51,7 +51,7 @@ inquirer
       type: "input",
       name: "outputPath",
       message: "Mention the output directory name?",
-      when: () => !cli.input.length && !cli.flags.dry,
+      when: () => !cli.flags.dry && !cli.flags.output,
       default: "webpagetest",
     },
   ])

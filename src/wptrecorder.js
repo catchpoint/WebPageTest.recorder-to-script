@@ -93,7 +93,7 @@ export class WPTChromeExtension extends StringifyExtension {
             //out.appendLine('execAndWait document.querySelector("' + selector + '").value = "' + value + '";';
             // This will also handle React's Synthetic Event Listeners
             out.appendLine(
-              `execAndWait el = document.querySelector('${selector}'); proto = Object.getPrototypeOf(el); set = Object.getOwnPropertyDescriptor(proto, 'value').set; set.call(el, '${value}'); el.dispatchEvent(new Event('input', { bubbles: true }))`
+              `execAndWait el = document.querySelector("${selector}"); proto = Object.getPrototypeOf(el); set = Object.getOwnPropertyDescriptor(proto, "value").set; set.call(el, "${value}"); el.dispatchEvent(new Event("input", { bubbles: true }))`
             );
           }
         });
@@ -119,8 +119,10 @@ export class WPTChromeExtension extends StringifyExtension {
 
     function addWaitForElement(selectors) {
       selectors.forEach((selector) => {
-        out.appendLine("setEventName WaitForElement");
-        out.appendLine(`waitFor document.querySelector("${selector}")`);
+        if (!selector[0].startsWith("aria/") && !selector[0].startsWith("xpath/") && !selector[0].startsWith("text/")) {
+          out.appendLine("setEventName WaitForElement");
+          out.appendLine(`waitFor document.querySelector("${selector}")`);
+        }
       });
     }
 

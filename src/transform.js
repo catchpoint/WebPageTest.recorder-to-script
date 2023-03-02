@@ -13,7 +13,7 @@ export function runTransformsOnChromeRecording({ files, outputPath, flags }) {
     console.log(chalk.yellow(`Running Webpagetest Chrome Recorder on ${file}\n`));
 
     const recordingContent = readFileSync(file, "utf-8");
-    const stringifiedFile = await WPTStringifyChromeRecording(recordingContent);
+    const stringifiedFile = await WPTStringifyChromeRecording(JSON.parse(recordingContent));
 
     if (!stringifiedFile) {
       return;

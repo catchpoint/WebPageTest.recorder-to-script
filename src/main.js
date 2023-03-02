@@ -10,15 +10,15 @@ const WPTStringifyChromeRecording = async (recording) => {
 
   let stringifiedString;
 
-  if (JSON.parse(recording).title) {
-    stringifiedString = await stringify(JSON.parse(recording), {
+  if (recording.title) {
+    stringifiedString = await stringify(recording, {
       extension: new WPTChromeExtension(),
     });
 
     // Can be used to remove #recorderSourceMap
     //stringifiedString = stringifiedString.substring(0, stringifiedString.lastIndexOf("//"));
   } else {
-    stringifiedString = await stringifyStep(JSON.parse(recording), {
+    stringifiedString = await stringifyStep(recording, {
       extension: new WPTChromeExtension(),
     });
   }

@@ -1,5 +1,5 @@
 # Dependency directories
 node_modules/
-
-# Recordings
-sample-recordings/
+dist
+webpagetest
+.DS_Store

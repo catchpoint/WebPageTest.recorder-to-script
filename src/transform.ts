@@ -3,13 +3,22 @@ import * as path from "path";
 import fs from "fs";
 import { readFileSync } from "fs";
 import { WPTStringifyChromeRecording } from "./main.js";
+import { Flags, ExportToFile } from "./types.js";
 
 const __dirname = path.resolve(path.dirname("."));
 
-export function runTransformsOnChromeRecording({ files, outputPath, flags }) {
+export function runTransformsOnChromeRecording({
+  files,
+  outputPath,
+  flags,
+}: {
+  files: string[];
+  outputPath: string;
+  flags: Flags;
+}) {
   const { dry } = flags;
 
-  return files.map(async (file) => {
+  return files.map(async (file: any) => {
     console.log(chalk.yellow(`Running Webpagetest Chrome Recorder on ${file}\n`));
 
     const recordingContent = readFileSync(file, "utf-8");
@@ -38,7 +47,7 @@ export function runTransformsOnChromeRecording({ files, outputPath, flags }) {
   });
 }
 
-function exportFileToFolder({ stringifiedFile, testName, outputPath, outputFolder }) {
+function exportFileToFolder({ stringifiedFile, testName, outputPath, outputFolder }: ExportToFile): void {
   const folderPath = path.join(".", outputPath);
   if (!fs.existsSync(folderPath)) {
     fs.mkdir(

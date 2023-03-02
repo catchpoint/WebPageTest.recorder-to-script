@@ -131,6 +131,7 @@ Once that is done, feed the JSON into the recorder script to generate the [WPT c
 ## Currently Supported Recorder Commands
 
 - `navigate` (maps to `navigate`)
+- `setViewport` (maps to `setViewportSize`)
 - `click` (maps to `execAndWait`)
 - `change` (maps to `execAndWait`)
 - `keydown` (maps to `execAndWait`)

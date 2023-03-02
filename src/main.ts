@@ -3,7 +3,7 @@ import { WPTChromeExtension } from "./wptrecorder.js";
 
 //Change this later
 
-const WPTStringifyChromeRecording = async (recording) => {
+const WPTStringifyChromeRecording = async (recording: any) => {
   if (recording.length === 0) {
     console.log("Recording length is not correct");
   }

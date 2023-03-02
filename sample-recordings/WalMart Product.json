@@ -1,0 +1,82 @@
+{
+  "title": "WalMart Product",
+  "steps": [
+    {
+      "type": "setViewport",
+      "width": 1342,
+      "height": 1336,
+      "deviceScaleFactor": 1,
+      "isMobile": false,
+      "hasTouch": false,
+      "isLandscape": false
+    },
+    {
+      "type": "navigate",
+      "url": "https://www.walmart.com/",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://www.walmart.com/",
+          "title": "Walmart.com | Save Money. Live Better"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/5 Surprise Mini Brands Mystery Capsule Real Miniature Brands Collectible Toy by ZURU (3 Pack)[role=\"img\"]"
+        ],
+        [
+          "[data-testid=carousel-container] > li > div > div > div:nth-child(1) > div > a > img"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 62.6875,
+      "offsetY": 42.265625
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/Add to cart - 5 Surprise Mini Brands Mystery Capsule Real Miniature Brands Collectible Toy by ZURU (3 Pack)",
+          "aria/[role=\"generic\"]"
+        ],
+        [
+          "[data-testid=add-to-cart-section] > div > div:nth-child(3) > div > button > span"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 10.65625,
+      "offsetY": 10.703125
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/View cart (1)"
+        ],
+        [
+          "body > div:nth-child(26) > div > div.w_HX > div.w_Gh.w_Gi > div > div.w_Gs > div > span > div > button"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 193,
+      "offsetY": 29
+    },
+    {
+      "type": "click",
+      "selectors": [
+        [
+          "aria/Continue to checkout[role=\"button\"]"
+        ],
+        [
+          "#Continue\\ to\\ checkout\\ button"
+        ]
+      ],
+      "target": "main",
+      "offsetX": 191,
+      "offsetY": 27
+    }
+  ]
+}

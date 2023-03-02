@@ -1,11 +1,11 @@
 import assert from "assert";
 import { stringify, stringifyStep } from "@puppeteer/replay";
 import { WPTChromeExtension } from "../src/wptrecorder.js";
-import { it } from "mocha";
+import { Interface, it } from "mocha";
 
 describe("WebpagetestStringifyExtension", function () {
   it("should correctly exports setViewport step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -30,7 +30,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports navigate step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -57,7 +57,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports click step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -92,7 +92,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports change step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -114,7 +114,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports keyDown step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -142,7 +142,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports keyUp step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -160,7 +160,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports waitForElement step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -186,7 +186,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports waitForExpression step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -206,7 +206,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports doubleClick step", async () => {
-    const recording = {
+    const recording: any = {
       title: "Recording 10/4/2022 at 4:20:30 PM",
       steps: [
         {
@@ -234,7 +234,7 @@ describe("WebpagetestStringifyExtension", function () {
   });
 
   it("should correctly exports single step", async () => {
-    const recording = {
+    const recording: any = {
       type: "navigate",
       url: "https://timkadlec.com/",
       assertedEvents: [

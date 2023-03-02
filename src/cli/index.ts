@@ -2,6 +2,7 @@ import meow from "meow";
 import inquirer from "inquirer";
 import { runTransformsOnChromeRecording } from "../transform.js";
 import { expandedFiles } from "../utils.js";
+import { InquirerAnswerTypes } from "../types";
 
 const cli = meow(
   `
@@ -41,7 +42,7 @@ inquirer
       message: "Enter directory or files that should be converted from Recorder JSON to Webpagetest:",
       default: ".",
       when: () => !cli.input.length,
-      filter(files) {
+      filter(files: string) {
         return new Promise((resolve) => {
           resolve(files.split(/\s+/).filter((f) => f.trim().length > 0));
         });
@@ -55,7 +56,7 @@ inquirer
       default: "webpagetest",
     },
   ])
-  .then((answers) => {
+  .then((answers: InquirerAnswerTypes) => {
     const { files: recordingFiles, outputPath: outputFolder } = answers;
     const files = cli.input.length ? cli.input : recordingFiles;
     const filesExpanded = expandedFiles(files);
@@ -73,7 +74,7 @@ inquirer
       flags: cli.flags,
     });
   })
-  .catch((error) => {
+  .catch((error: any) => {
     if (error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
     } else {

@@ -1,12 +1,12 @@
-import { StringifyExtension } from "@puppeteer/replay";
+import { StringifyExtension, LineWriter, UserFlow, Step } from "@puppeteer/replay";
 
 export class WPTChromeExtension extends StringifyExtension {
-  async beforeAllSteps(...args) {}
+  async beforeAllSteps(out: LineWriter, flow: UserFlow): Promise<void> {}
 
-  async afterEachStep(...args) {
-    const [out, step] = args;
+  async afterEachStep(out: LineWriter, step: Step) {
+    //const [out, step] = args;
 
-    function addScriptLine(step) {
+    function addScriptLine(step: Step) {
       switch (step.type) {
         case "setViewport":
           addViewport(step);
@@ -45,34 +45,29 @@ export class WPTChromeExtension extends StringifyExtension {
 
     addScriptLine(step);
 
-    function addNavigate(url) {
+    function addNavigate(url: string) {
       out.appendLine(`setEventName Navigate`);
       out.appendLine(`navigate ${url}`);
     }
 
-    function addViewport(step) {
+    function addViewport(step: any) {
       out.appendLine(`setViewportSize ${step.width} ${step.height}`);
     }
 
-    function addNavigate(url) {
-      out.appendLine("setEventName Navigate");
-      out.appendLine("navigate " + url + "");
-    }
-
-    function addClick(selectors) {
+    function addClick(selectors: any) {
       out.appendLine("setEventName Click");
       //for now, let's skip any aria/ until we figure somethign out there
-      selectors.forEach((selector) => {
+      selectors.forEach((selector: any) => {
         if (!selector[0].startsWith("aria/") && !selector[0].startsWith("xpath/") && !selector[0].startsWith("text/")) {
           out.appendLine('execAndWait document.querySelector("' + selector + '").click();');
         }
       });
     }
 
-    function addChange(selectors, value) {
+    function addChange(selectors: any[], value: any) {
       if (isKeyDown) {
         out.appendLine("setEventName KeyDown");
-        selectors.forEach((selector) => {
+        selectors.forEach((selector: any) => {
           if (
             !selector[0].startsWith("aria/") &&
             !selector[0].startsWith("xpath/") &&
@@ -84,7 +79,7 @@ export class WPTChromeExtension extends StringifyExtension {
       } else {
         out.appendLine("setEventName Change");
         //for now, let's skip any aria/ until we figure somethign out there
-        selectors.forEach((selector) => {
+        selectors.forEach((selector: any) => {
           if (
             !selector[0].startsWith("aria/") &&
             !selector[0].startsWith("xpath/") &&
@@ -100,10 +95,10 @@ export class WPTChromeExtension extends StringifyExtension {
       }
     }
 
-    function addKeyDown(assertedEvents) {
+    function addKeyDown(assertedEvents: any) {
       //Because some keydown events are returning url's as assertedEvents
       if (assertedEvents) {
-        assertedEvents.forEach((item) => {
+        assertedEvents.forEach((item: any) => {
           out.appendLine("setEventName KeyDown");
           out.appendLine("navigate " + item.url + "");
         });
@@ -117,8 +112,8 @@ export class WPTChromeExtension extends StringifyExtension {
       isKeyDown = false;
     }
 
-    function addWaitForElement(selectors) {
-      selectors.forEach((selector) => {
+    function addWaitForElement(selectors: any) {
+      selectors.forEach((selector: any) => {
         if (!selector[0].startsWith("aria/") && !selector[0].startsWith("xpath/") && !selector[0].startsWith("text/")) {
           out.appendLine("setEventName WaitForElement");
           out.appendLine(`waitFor document.querySelector("${selector}")`);
@@ -126,22 +121,22 @@ export class WPTChromeExtension extends StringifyExtension {
       });
     }
 
-    function addWaitFor(step) {
+    function addWaitFor(step: any) {
       out.appendLine("setEventName WaitForExpression");
       out.appendLine("waitFor " + step.expression + "");
     }
 
-    function doubleClick(selectors) {
+    function doubleClick(selectors: any) {
       out.appendLine("setEventName doubleClick");
       //for now, let's skip any aria/ until we figure somethign out there
-      selectors.forEach((selector) => {
+      selectors.forEach((selector: any) => {
         if (!selector[0].startsWith("aria/") && !selector[0].startsWith("xpath/") && !selector[0].startsWith("text/")) {
           out.appendLine(`execAndWait document.querySelector('${selector}').dispatchEvent(new MouseEvent('dblclick'))`);
         }
       });
     }
 
-    function scroll(step) {
+    function scroll(step: any) {
       out.appendLine("setEventName Scroll");
       out.appendLine(`execAndWait window.scrollBy(${step.x},${step.y})`);
     }

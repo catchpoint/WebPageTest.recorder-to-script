@@ -88,7 +88,7 @@ const recording = {
   ],
 };
 
-const customScript = await WPTStringifyChromeRecording(JSON.stringify(recording));
+const customScript = await WPTStringifyChromeRecording(recording);
 
 console.log(customScript);
 

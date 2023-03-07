@@ -1,28 +1,103 @@
-<p align="center"><img src="https://docs.webpagetest.org/img/wpt-navy-logo.png" alt="WebPageTest Logo" /></p>
+<!-- <p align="center"><img src="https://docs.webpagetest.org/img/wpt-navy-logo.png" alt="WebPageTest Logo" /></p> -->
+<p align="center"><img width="100%" alt="Webpagetest Slack Banner" src="assets/Banner-docs.jpg"></p>
+<p align="center"><a href="https://docs.webpagetest.org/api/integrations/#officially-supported-integrations">Learn about more WebPageTest API Integrations in our docs</a></p>
 
-
-# EXPERIMENTAL: Recorder-To-WPT-Script
-
-Script to convert Chrome user flow recordings to WPT Custom Scripts
-
-Takes the path to a recorder JSON file and returns a WebPageTest Custom Script.
+#  WEBPAGETEST CHROME RECORDER
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](#)
 
+This tool will help you to convert JSON user flows from [Google Chrome DevTools Recorder](https://goo.gle/devtools-recorder) to WEBPAGETEST Custom Scripts
 
-## Requirements
+Converts recordings to Webpagetest scripts using CLI / Module (Wrapper Funstions).
 
-* [Node js](https://nodejs.org/en/)
 
-## Usage
+Check out our [Webpagetest Chrome extension](https://chrome.google.com/webstore/detail/webpagetest-recorder-exte/eklpnjohdjknellndlnepihjnhpaimok) to export JSON user flows as Webpagetest custom scripts straight away from Chrome DevTools.
 
+
+## 🏗 Installation
+
+```sh
+npm install -g webpagetest-chrome-recorder
 ```
-node index.js sample-recordings/simple-recorder.json
+
+## 🚀 Usage
+
+To quickly run the interactive CLI, run:
+
+```sh
+npx webpagetest-chrome-recorder
 ```
 
-![Screenshots of Script](/assets/images/wpt-recorder-script.png)
-Paste this script into WPT custom script and see the magic happening
-<br></br>
+> The CLI will prompt you for the path to the chrome devtool recordings you wish to modify and the location to write the Nightwatch tests.
+
+**⚡️ Transform individual recordings**
+
+```sh
+npx webpagetest-chrome-recorder <path to the chrome devtools recording>
+```
+
+**⚡️ Transform multiple recordings** (Space delimited)
+
+```sh
+npx webpagetest-chrome-recorder <path.json> <path.json>
+```
+
+👉 By default output will be written to `webpagetest` folder.
+
+You can specify different output directory, specify that via cli
+
+```sh
+npx webpagetest-chrome-recorder <path to the chrome devtools recording> --output=<folder-name>
+```
+
+## ⚙️ CLI Options
+
+| Option       | Description                                            |
+| ------------ | ------------------------------------------------------ |
+| -d, --dry    | Dry run the output of the transformed recordings       |
+| -o, --output | Set Output location for the exports                    |
+
+## 💻 Programmatic API
+
+```javascript
+import { WPTStringifyChromeRecording } from "webpagetest-chrome-recorder";
+
+const recording = {
+  title: "recording",
+  steps: [
+    {
+      type: "setViewport",
+      width: 812,
+      height: 609,
+      deviceScaleFactor: 1,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: false,
+    },
+    {
+      type: "navigate",
+      url: "https://timkadlec.com/",
+      assertedEvents: [
+        {
+          type: "navigation",
+          url: "https://timkadlec.com/",
+          title: "TimKadlec.com - Web Performance Consulting | TimKadlec.com",
+        },
+      ],
+    },
+  ],
+};
+
+const customScript = await WPTStringifyChromeRecording(recording);
+
+console.log(customScript);
+
+
+//setViewportSize 812 609
+//setEventName Navigate
+//navigate https://timkadlec.com/
+//# recorderSourceMap=BABBC
+```
 
 ## Steps to obtain Chrome user flow recordings
 
@@ -56,6 +131,7 @@ Once that is done, feed the JSON into the recorder script to generate the [WPT c
 ## Currently Supported Recorder Commands
 
 - `navigate` (maps to `navigate`)
+- `setViewport` (maps to `setViewportSize`)
 - `click` (maps to `execAndWait`)
 - `change` (maps to `execAndWait`)
 - `keydown` (maps to `execAndWait`)
@@ -67,14 +143,12 @@ Once that is done, feed the JSON into the recorder script to generate the [WPT c
 
 ## Resources
 - [Sample JSON recordings](/sample-recordings)
-- [Puppeteer JS output for reference](/sample-recordings/puppeteer-examples)
 - [Recorder docs](https://developer.chrome.com/docs/devtools/recorder/)
 
 ---
 **NOTE**
-- Only Chrome v101 and above i.e. Google Chrome Developer and Google Chrome Canary exports these json scripts.
-- There are some websites having issues with chrome recorder, this issue will be resolved with time as Google developers improve Chrome
-  
+- Only Chrome v101 and above supports export json scripts.
+
 ---
 
 

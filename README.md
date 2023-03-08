@@ -1,5 +1,4 @@
-<!-- <p align="center"><img src="https://docs.webpagetest.org/img/wpt-navy-logo.png" alt="WebPageTest Logo" /></p> -->
-<p align="center"><img width="100%" alt="Webpagetest Slack Banner" src="assets/Banner-docs.jpg"></p>
+<p align="center"><img width="100%" alt="Webpagetest Chrome Recorder" src="assets/Banner-docs.jpg"></p>
 <p align="center"><a href="https://docs.webpagetest.org/api/integrations/#officially-supported-integrations">Learn about more WebPageTest API Integrations in our docs</a></p>
 
 #  WEBPAGETEST CHROME RECORDER

@@ -1,8 +1,9 @@
 import meow from "meow";
-import inquirer from "inquirer";
+import inquirer, { Answers } from "inquirer";
 import { runTransformsOnChromeRecording } from "../transform.js";
 import { expandedFiles } from "../utils.js";
 import { InquirerAnswerTypes } from "../types";
+import chalk from "chalk";
 
 const cli = meow(
   `
@@ -56,7 +57,7 @@ inquirer
       default: "webpagetest",
     },
   ])
-  .then((answers: InquirerAnswerTypes) => {
+  .then((answers: Answers) => {
     const { files: recordingFiles, outputPath: outputFolder } = answers;
     const files = cli.input.length ? cli.input : recordingFiles;
     const filesExpanded = expandedFiles(files);
@@ -66,7 +67,7 @@ inquirer
       return null;
     }
 
-    const outputPath = cli.flags?.output?.length ? cli.flags.output : outputFolder;
+    const outputPath = Array.isArray(cli.flags?.output) ? cli.flags.output : outputFolder;
 
     return runTransformsOnChromeRecording({
       files: filesExpanded,

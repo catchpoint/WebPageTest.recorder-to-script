@@ -1,6 +1,6 @@
 {
   "name": "webpagetest-chrome-recorder",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "This module will help you to convert JSON user flows from Google Chrome DevTools Recorder to WEBPAGETEST Custom Scripts",
   "main": "dist/main.js",
   "bin": {
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
     "@types/mocha": "^10.0.1",
+    "inquirer": "^9.0.3",
     "mocha": "^10.2.0"
   }
 }

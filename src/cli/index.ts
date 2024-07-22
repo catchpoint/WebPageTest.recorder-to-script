@@ -2,8 +2,6 @@ import meow from "meow";
 import inquirer, { Answers } from "inquirer";
 import { runTransformsOnChromeRecording } from "../transform.js";
 import { expandedFiles } from "../utils.js";
-import { InquirerAnswerTypes } from "../types";
-import chalk from "chalk";
 
 const cli = meow(
   `

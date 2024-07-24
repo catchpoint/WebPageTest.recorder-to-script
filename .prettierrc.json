@@ -1,0 +1,7 @@
+{
+    "tabWidth": 2,
+    "arrowParens": "always",
+    "endOfLine": "auto",
+    "singleQuote": false,
+    "printWidth": 120
+}
